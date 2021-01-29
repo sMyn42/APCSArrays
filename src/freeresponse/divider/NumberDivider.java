@@ -20,7 +20,6 @@ public class NumberDivider {
      */
     public static boolean isNumberDivider(int number)
     {
-        //TODO add code here
         int temp = number;
         while (temp > 0){
             int lastDigit = temp % 10;

@@ -35,7 +35,6 @@ public class GradeAverage {
     // or equal to the previous value.  Otherwise returns false
     private boolean showsImprovement()
     {
-        //TODO add code here
         for (int i = 0; i < scores.length - 1; i++){
             if (scores[i] > scores[i+1]) return false;
         }
@@ -47,8 +46,7 @@ public class GradeAverage {
     // equal to scores.length()/2
     public double finalGrade()
     {
-        //TODO add code here
-        if (this.showsImprovement() == true){
+        if (this.showsImprovement()){
             return mean(scores.length/2, scores.length - 1);
         }
         return mean(0, scores.length - 1);
@@ -69,7 +67,7 @@ public class GradeAverage {
         GradeAverage sr3 = new GradeAverage(s3);
         //System.out.println(sr3.mean());
         //System.out.println(sr3.showsImprovement());
-        System.out.println(sr3.finalGrade()); //TODO are the uncommented ones the only test cases we need to fulfill? Also, does the commented code need to work (default signature for mean)?
+        System.out.println(sr3.finalGrade());
     }
 
 }
