@@ -8,6 +8,8 @@ public class Box {
         isBlack = isb;
         num = n;
     }
+
+    @Override
     public String toString(){
         String s;
         if(isBlack)s=" black";

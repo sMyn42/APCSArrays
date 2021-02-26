@@ -25,10 +25,10 @@ public class WordPuzzle {
      */
     public boolean toBeLabeled(int r, int c, boolean [][] blackBoxes){
         /* to be implemented in part a */
-
-
-
-
+        if (blackBoxes[r][c] == false) {
+            if (r == 0 || c == 0) return true;
+            if (blackBoxes[r - 1][c] == true || blackBoxes[r][c - 1] == true) return true;
+        }
         return false;    // replace this
     }
 
@@ -51,15 +51,26 @@ public class WordPuzzle {
      */
     public WordPuzzle(boolean [][] blackBoxes){
         /* to be implemented in part b */
-
-
-
+        int nextNum = 1;
+        int rows = blackBoxes.length;
+        int cols = blackBoxes[0].length;
+        puzzle = new Box[rows][cols];
+        for (int r = 0; r < rows; r++){
+            for (int c = 0; c < cols; c++){
+                if (toBeLabeled(r, c, blackBoxes)){
+                    puzzle[r][c] = new Box(blackBoxes[r][c], nextNum);
+                    nextNum++;
+                } else {
+                    puzzle[r][c] = new Box(blackBoxes[r][c], 0);
+                }
+            }
+        }
     }
 
 
     public String toString(){
         String s = "";
-        for(int r =0; r < puzzle.length; r++){
+        for(int r = 0; r < puzzle.length; r++){
             for(int c = 0; c < puzzle[0].length; c++){
                 s += puzzle[r][c].toString();
             }
