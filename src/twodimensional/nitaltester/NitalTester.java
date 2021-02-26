@@ -76,15 +76,15 @@ public class NitalTester {
             if (containsRepeats(row)) return false;   // replace this
         }
 
-        for(int i = 1; j < square.length; i++){
-            if( !hasAllValues(square[0],square[i]) ) return false;
+        for(int i = 1; i < square.length; i++){
+            if( !hasAllValues(square[0], square[i]) ) return false;
         }
 
-        for(int i = 0; i < square.length-1; i++){
-            for(int j = i+1; j < square.length; j++){
-                if( !hasAllValues(square[i],square[j]) ) return false;
-            }
+        for(int i = 0; i < square.length; i++){
+            if( !hasAllValues(square[0], getColumn(square, 0)) ) return false;
         }
+
+        return true;
     }
 
     public static void main(String[] args){
