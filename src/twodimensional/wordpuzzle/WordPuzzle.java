@@ -25,11 +25,9 @@ public class WordPuzzle {
      */
     public boolean toBeLabeled(int r, int c, boolean [][] blackBoxes){
         /* to be implemented in part a */
-        if (blackBoxes[r][c] == false) {
-            if (r == 0 || c == 0) return true;
-            if (blackBoxes[r - 1][c] == true || blackBoxes[r][c - 1] == true) return true;
-        }
-        return false;    // replace this
+        if (blackBoxes[r][c] == true) return false;
+        if (r != 0 && c != 0 && blackBoxes[r - 1][c] == false && blackBoxes[r][c - 1] == false) return false;
+        return true;
     }
 
     /* Write the WordPuzzle Constructor.  The constructor should initialize the
